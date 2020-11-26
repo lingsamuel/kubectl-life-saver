@@ -54,14 +54,7 @@ export NS=default
 alias ns='echo $NS'
 alias k='kubectl'
 alias kn='kubectl -n $NS'
-alias kg='kubectl get'
-alias kng='kubectl get -n $NS'
-alias ke='kubectl edit'
-alias kne='kubectl edit -n $NS'
-alias kd='kubectl describe'
-alias knd='kubectl describe -n $NS'
-alias kr='kubectl delete'
-alias knr='kubectl delete -n $NS'
+alias ka='kubectl --all-namespaces'
 
 # exec and logs doesn't need resource
 alias kx='kubectl exec -it'
@@ -78,7 +71,10 @@ EOF
       rs_shortcut=$(echo "$resource" | awk -F '/' '{print $1}')
       cmd=$(echo "$command" | awk -F '/' '{print $2}')
       rs=$(echo "$resource" | awk -F '/' '{print $2}')
-      echo "alias k${cmd_shortcut}${rs_shortcut}='kubectl $cmd $rs'" >> $OUTPUT
+      echo "alias k${cmd_shortcut}='kubectl $cmd'" >> $OUTPUT
+      echo "alias kn${cmd_shortcut}='kubectl -n \$NS $cmd'" >> $OUTPUT
+      echo "alias ka${cmd_shortcut}='kubectl $cmd --all-namespaces'" >> $OUTPUT
+      echo "alias k${cmd_shortcut}='kubectl $cmd $rs'" >> $OUTPUT
       echo "alias kn${cmd_shortcut}${rs_shortcut}='kubectl -n \$NS $cmd $rs'" >> $OUTPUT
       echo "alias ka${cmd_shortcut}${rs_shortcut}='kubectl $cmd --all-namespaces $rs'" >> $OUTPUT
       echo "" >> $OUTPUT

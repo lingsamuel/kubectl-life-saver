@@ -40,6 +40,7 @@ _K8S_RESOURCE_LIST=(
   'q/ResourceQuotas'
   'svc/Services'
   'c/ConfigMaps'
+  'cm/ConfigMaps'
   'i/Ingresses'
   'e/Events'
   's/Secrets'

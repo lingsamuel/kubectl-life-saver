@@ -23,7 +23,12 @@ k[n]<x|l> <podname> [other-options]
 - n: `-n $NS`
 - a: `--all-namespaces`
 
-Set `NS=xx` before use `kn` aliases.
+Set `NS=xx` before use `kn` aliases. If you added ksn.sh in your rc file, you can use `ksn` to auto set the `NS` with completion from your current kube context.
+
+```
+ksn kube-system
+ksn kube-sys[TAB] -> ksn kube-system
+```
 
 Check namespace by `ns` or it's equivalent `echo $NS`.
 
@@ -33,7 +38,7 @@ Check namespace by `ns` or it's equivalent `echo $NS`.
 kgn # kubectl get nodes
 kgn -o wide # kubectl get nodes -o wide
 
-NS=kube-system
+ksn kube-system
 kngp # kubectl -n $NS get pods
 kngp --watch # kubectl -n $NS get pods --watch
 knl podname # kubectl -n $NS logs podname

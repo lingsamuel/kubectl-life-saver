@@ -48,6 +48,7 @@ _K8S_RESOURCE_LIST=(
   'sc/StorageClasses'
   'np/NetworkPolicies'
   'ep/Endpoints'
+  'crd/CustomResourceDefinitions'
 )
 __generate_k8s_aliases() {
   local OUTPUT=${1:-"$HOME/.k8s_aliases.sh"}

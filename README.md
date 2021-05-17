@@ -95,6 +95,8 @@ Resources store in array `_K8S_RESOURCE_LIST` with same rule like commands.
 - sa: ServiceAccounts
 - sc: StorageClasses
 - np: NetworkPolicies
+- ep: Endpoints
+- crd: CustomResourceDefinitions
 
 # Interactive command builder using peco
 
